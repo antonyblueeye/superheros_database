@@ -1,31 +1,46 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <h1 class="main-title">
+      Superhero Database Application <i class="fas fa-mask"></i> 
+    </h1>
+    <router-view />
   </div>
 </template>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Kufam:wght@500;700&family=Raleway&display=swap");
+@import url("../node_modules/normalize.scss/normalize.scss");
+@import url("./assets/scss/base.scss");
+@import url("./assets/scss/_mixins.scss");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  .main-title {
+    padding: 30px 0;
+    font-family: "Kufam", cursive;
+    font-weight: 700;
+    color: rgb(61, 58, 58);
+    text-align: center;
+    position: relative;
+    background: linear-gradient(
+      90deg,
+      rgba(245, 224, 224, 1) 0%,
+      rgba(255, 231, 231, 1) 42%,
+      rgba(255, 246, 246, 1) 79%
+    );
 
-#nav {
-  padding: 30px;
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 1px;
+      background: rgb(51, 48, 48);
+    }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    i {
+      color: rgb(48, 46, 40);
     }
   }
 }
