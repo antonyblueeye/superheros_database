@@ -11,7 +11,7 @@
       <router-link to="/database" class="button">Explore it</router-link>
     </div>
     <img
-      src="../assets/img/superheros.jpg"
+      src="./../assets/img/superheros.jpg"
       alt="Superheros"
       class="home__superheros-img"
     />
@@ -66,10 +66,15 @@ export default {};
   color: rgb(56, 50, 50);
   border-radius: 13px;
   transition: 0.3s ease-in;
+  cursor: pointer;
 
   &:hover {
     color: #fff;
     background: rgb(56, 50, 50);
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 </style>

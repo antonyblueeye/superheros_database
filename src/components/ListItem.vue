@@ -1,29 +1,46 @@
 <template>
   <li class="database__item">
     <div class="database__tools">
-      <i class="fas fa-info-circle"></i>
-      <i class="fas fa-edit"></i>
-      <i class="fas fa-trash-alt"></i>
+      <i class="fas fa-info-circle"
+        v-on:click="getId"
+      ></i>
+      <i class="fas fa-edit"
+        v-on:click="editItem"
+      ></i>
+      <i class="fas fa-trash-alt"
+        v-on:click="deleteItem"
+      ></i>
     </div>
     {{ item.nickname }}
 
-    <img :src="link[0]" class="database__img" />
+    <img :src="item.images[0]" class="database__img" />
   </li>
 </template>
 
 <script>
+import { bus } from './../main'
+
 export default {
-  data() {
-    return {
-      link: this.item.images,
-    };
-  },
   props: {
     item: {
       type: Object,
       required: true,
     },
   },
+  methods: {
+      getId() {
+          bus.$emit('reading-info', this.item.id)
+        //   console.log(this.item.id)
+      },
+      editItem() {
+        //   this.$emit('edit-item', this.item.id)
+          bus.$emit('edit-info', this.item.id)
+      },
+      deleteItem() {
+          this.$emit('remove-item', this.item.id)
+          this.link = this.item.images
+      }
+  }
 };
 </script>
 
