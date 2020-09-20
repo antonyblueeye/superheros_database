@@ -37,7 +37,11 @@ import { bus } from "./../main";
 export default {
   data() {
     return {
-      newItems: [],
+      newItems: [
+        {
+          nickname: ''
+        }
+      ],
       id: 0,
     };
   },
